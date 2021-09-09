@@ -1,0 +1,217 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
+
+@import 'normalize';
+@import '_mixins';
+
+/*Start Reset*/
+*, *:before, *:after {
+  box-sizing: border-box; }
+
+  html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline; }
+  
+  /* HTML5 display-role reset for older browsers */
+  article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    display: block; }
+  
+  body {
+    line-height: 1; }
+  
+  ol, ul {
+    list-style: none; }
+  
+  blockquote, q {
+    quotes: none; }
+  
+  blockquote:before, blockquote:after {
+    content: '';
+    content: none; }
+  
+  q:before, q:after {
+    content: '';
+    content: none; }
+  
+  table {
+    border-collapse: collapse;
+    border-spacing: 0; }
+  
+  /*End Reset*/
+
+/*Colors*/
+$aqua:#d0e8e6;
+$purple:#803093;
+$red: #e38597;
+$redText : #ee4468;
+$font : 'Open Sans', sans-serif;
+$aqua-active:#a1d2ce;
+
+html{
+  @include bp-small {
+    font-size: 14px;
+  }
+}
+
+body{
+  font-size: 0.875rem;
+} 
+
+.Form { 
+  padding: 50px;
+  max-width: 960px;
+  margin: auto;
+  font-family: $font;
+  background: url('/src/img/texture.png'); 
+
+  h2{
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+  .Form-container{
+    margin-top: 30px;
+  }
+  legend{
+    display: none;
+  }
+  .input-cont{
+    font-size: 0;
+    .col{
+      width: 50%;
+      font-size: 0.875rem;
+      display: inline-block;
+      padding: 15px;
+      @include bp-small {
+        width: 100%;
+        padding-left: 0;
+      }
+      
+      &:first-child{
+        padding-left: 0;
+      }
+    }
+    span.lbl{
+      display: block;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+    input[type="text"]{
+      width: 100%;
+      height: 45px;
+      font-size: 1rem;
+      padding: 10px;
+      @include bp-small {
+        height: 40px;
+      }
+    }
+    .slct{
+      position: relative;
+      display: inline-block;
+      select{
+        height: 45px;
+        padding: 10px;
+        font-size: 0.875rem;
+        font-family: $font;
+        min-width: 151px;
+        @include appareance(none);
+        @include bp-small {
+          height: 40px;
+        }
+      }
+      &::after{
+        content: url('/src/img/text-expand-arrow.svg');
+        display: block;
+        //position: absolute;
+        width: 20px;
+        height: 20px;
+        position:absolute;
+        top:15px;
+        right: 0;
+      }
+    }
+  }
+  /*Checkboxes*/
+  .check{
+    cursor: pointer;
+    .custom-check{
+      display: inline-block;
+      width: 30px;
+      height: 30px;
+      margin-right: 16px;
+      vertical-align: middle;
+      position: relative;
+      @include transition(1s all);
+    }
+    input{
+      opacity: 0;
+      width: 1em;
+      height: 1em;
+    
+      &:checked ~ .custom-check{
+        background-color: $purple;
+        border-color: $purple;
+
+        &::after{
+          content: url('/src/img/check.svg'); 
+          display: block;
+          position: absolute;
+          right: 0;
+          left: 0;
+          @include filter(invert(100%))
+        }
+      }
+    }
+    
+  } 
+  input,select,.custom-check{
+    @include box-shadow(0px,5px,5px, #ccc);
+    background-color: #fff;
+    border:3px solid $aqua;
+    outline: none;
+    &:focus{
+      border-color: $aqua-active;
+    }
+  }
+
+  /*Error msg*/
+
+  .errorMsg{
+    color:$redText;
+    font-weight: 600;
+    margin-bottom: 5px;
+  }
+
+
+  /*Buttons*/
+  .btn{
+    height: 40px;
+    min-width: 145px;
+    text-align: center;
+    cursor:pointer;
+    margin-left: 18px;
+   
+    @include border-radius(20px,20px,20px,20px);
+    font-family: $font;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: none;
+  }
+  .btn-prim{
+    background-color: $purple;
+    height: 40px;
+    color:#fff;
+  }
+  .btn-sec{
+    background-color: #fff;
+    height: 40px;
+  }
+  .form-footer{
+    margin-top: 80px;;
+  }
+} // .Form
+
+

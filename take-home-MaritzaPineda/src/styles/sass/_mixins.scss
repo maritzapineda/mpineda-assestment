@@ -1,0 +1,46 @@
+@mixin box-shadow($top, $left, $blur, $color, $inset: false) {
+    @if $inset {
+      -webkit-box-shadow:inset $top $left $blur $color;
+      -moz-box-shadow:inset $top $left $blur $color;
+      box-shadow:inset $top $left $blur $color;
+    } @else {
+      -webkit-box-shadow: $top $left $blur $color;
+      -moz-box-shadow: $top $left $blur $color;
+      box-shadow: $top $left $blur $color;
+    }
+  }
+
+  @mixin filter($value) {
+    -webkit-filter: $value;
+       -moz-filter: $value;
+         -o-filter: $value;
+            filter: $value;
+  }
+
+  @mixin transition($args...) {
+    -webkit-transition: $args;
+    -moz-transition: $args;
+    -ms-transition: $args;
+    -o-transition: $args;
+    transition: $args;
+  }
+
+  @mixin border-radius($top-left:10px, $top-right:null, $bottom-right:null, $bottom-left:null){
+    -webkit-border-radius: $top-left $top-right $bottom-right $bottom-left;
+       -moz-border-radius: $top-left $top-right $bottom-right $bottom-left;
+        -ms-border-radius: $top-left $top-right $bottom-right $bottom-left;
+            border-radius: $top-left $top-right $bottom-right $bottom-left;  
+  }
+
+  @mixin appareance($args) {
+    -webkit-appearance: $args;
+    -moz-appearance: $args;
+    -ms-appearance: $args;
+    -o-appearance: $args;
+    appearance: $args;
+  }
+  @mixin bp-small {
+    @media only screen and (max-width: 768px) {
+      @content;
+    }
+  }
